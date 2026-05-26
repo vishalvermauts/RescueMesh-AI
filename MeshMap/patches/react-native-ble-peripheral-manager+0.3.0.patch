@@ -1,0 +1,267 @@
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt b/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt
+index 8e342bb..010aaa5 100644
+--- a/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt
++++ b/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt
+@@ -14,6 +14,9 @@ import android.bluetooth.le.AdvertiseCallback
+ import android.bluetooth.le.AdvertiseData
+ import android.bluetooth.le.AdvertiseSettings
+ import android.bluetooth.le.BluetoothLeAdvertiser
++import android.bluetooth.le.AdvertisingSet
++import android.bluetooth.le.AdvertisingSetCallback
++import android.bluetooth.le.AdvertisingSetParameters
+ import android.content.BroadcastReceiver
+ import android.content.Context
+ import android.content.Intent
+@@ -83,6 +86,11 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+   private var isCurrentlyAdvertising = false
+   private var advertiseCallback: AdvertiseCallback? = null
+ 
++  // Extended advertising state (Long Range / Coded PHY)
++  private var advertisingSetCallback: AdvertisingSetCallback? = null
++  private var currentAdvertisingSet: AdvertisingSet? = null
++  private var pendingUseLongRange = false
++
+   // Device name
+   private var deviceName: String? = null
+ 
+@@ -181,7 +189,11 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     pendingAdvertiseSettings = null
+     pendingAdvertiseData = null
+     isRegisteringServicesForAdvertising = false
+-    if (!keepCallback) advertiseCallback = null
++    pendingUseLongRange = false
++    if (!keepCallback) {
++      advertiseCallback = null
++      advertisingSetCallback = null
++    }
+   }
+ 
+   private fun beginRegisterServicesThenAdvertise(
+@@ -263,50 +275,126 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+       return
+     }
+ 
+-    // Create callback once
+-    if (advertiseCallback == null) {
+-      advertiseCallback = object : AdvertiseCallback() {
+-        override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
+-          super.onStartSuccess(settingsInEffect)
+-          Log.i(TAG, "Advertising started successfully")
+-          isCurrentlyAdvertising = true
+-
+-          val params: WritableMap = Arguments.createMap()
+-          params.putBoolean("success", true)
+-          emitOnDidStartAdvertising(params)
++    var startedExtended = false
++    if (pendingUseLongRange && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
++      val adapter = bluetoothAdapter
++      if (adapter != null) {
++        val isCodedPhySupported = adapter.isLeCodedPhySupported
++        val isExtendedAdvSupported = adapter.isLeExtendedAdvertisingSupported
++        Log.d(TAG, "Long Range requested. isCodedPhySupported: $isCodedPhySupported, isExtendedAdvSupported: $isExtendedAdvSupported")
++
++        if (isCodedPhySupported && isExtendedAdvSupported) {
++          try {
++            val parameters = AdvertisingSetParameters.Builder()
++              .setLegacyMode(false)
++              .setConnectable(true)
++              .setTxPowerLevel(AdvertisingSetParameters.TX_POWER_HIGH)
++              .setPrimaryPhy(BluetoothDevice.PHY_LE_CODED)
++              .setSecondaryPhy(BluetoothDevice.PHY_LE_CODED)
++              .build()
++
++            val advSetCallback = object : AdvertisingSetCallback() {
++              override fun onAdvertisingSetStarted(
++                advertisingSet: AdvertisingSet?,
++                txPower: Int,
++                status: Int
++              ) {
++                super.onAdvertisingSetStarted(advertisingSet, txPower, status)
++                if (status == ADVERTISE_SUCCESS) {
++                  Log.i(TAG, "Long Range Advertising started successfully")
++                  currentAdvertisingSet = advertisingSet
++                  isCurrentlyAdvertising = true
++
++                  val params: WritableMap = Arguments.createMap()
++                  params.putBoolean("success", true)
++                  emitOnDidStartAdvertising(params)
++
++                  promise?.resolve(null)
++                  clearPendingAdvertisingPipeline(keepCallback = true)
++                } else {
++                  val errorMsg = "Long Range Advertising failed to start with status: $status"
++                  Log.e(TAG, errorMsg)
++                  isCurrentlyAdvertising = false
++                  emitAdvertisingError(errorMsg)
++                  promise?.reject("BLE_ERROR", errorMsg)
++                  clearPendingAdvertisingPipeline(keepCallback = true)
++                }
++              }
++
++              override fun onAdvertisingSetStopped(advertisingSet: AdvertisingSet?) {
++                super.onAdvertisingSetStopped(advertisingSet)
++                Log.i(TAG, "Long Range Advertising set stopped")
++                isCurrentlyAdvertising = false
++                currentAdvertisingSet = null
++              }
++            }
+ 
+-          promise?.resolve(null)
+-          clearPendingAdvertisingPipeline(keepCallback = true)
++            advertisingSetCallback = advSetCallback
++            advertiser.startAdvertisingSet(parameters, data, null, null, null, advSetCallback)
++            startedExtended = true
++            Log.d(TAG, "Triggered startAdvertisingSet for Long Range")
++          } catch (e: SecurityException) {
++            val error = "Security exception in Long Range Advertising: ${e.message}"
++            Log.e(TAG, "startAdvertiserNow (Long Range): $error")
++            promise?.reject("BLE_ERROR", error)
++            emitAdvertisingError(error)
++            clearPendingAdvertisingPipeline()
++            return
++          } catch (e: Exception) {
++            Log.w(TAG, "Failed to start Long Range advertising, falling back to legacy: ${e.message}")
++          }
++        } else {
++          Log.w(TAG, "Device does not support Long Range BLE Coded PHY, falling back to legacy")
+         }
++      }
++    }
+ 
+-        override fun onStartFailure(errorCode: Int) {
+-          super.onStartFailure(errorCode)
+-          val errorMsg = when (errorCode) {
+-            ADVERTISE_FAILED_DATA_TOO_LARGE -> "Data too large"
+-            ADVERTISE_FAILED_TOO_MANY_ADVERTISERS -> "Too many advertisers"
+-            ADVERTISE_FAILED_ALREADY_STARTED -> "Already started"
+-            ADVERTISE_FAILED_INTERNAL_ERROR -> "Internal error"
+-            ADVERTISE_FAILED_FEATURE_UNSUPPORTED -> "Feature unsupported"
+-            else -> "Unknown error: $errorCode"
++    if (!startedExtended) {
++      // Create callback once
++      if (advertiseCallback == null) {
++        advertiseCallback = object : AdvertiseCallback() {
++          override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
++            super.onStartSuccess(settingsInEffect)
++            Log.i(TAG, "Advertising started successfully")
++            isCurrentlyAdvertising = true
++
++            val params: WritableMap = Arguments.createMap()
++            params.putBoolean("success", true)
++            emitOnDidStartAdvertising(params)
++
++            promise?.resolve(null)
++            clearPendingAdvertisingPipeline(keepCallback = true)
+           }
+-          Log.e(TAG, "Advertising failed: $errorMsg")
+-          isCurrentlyAdvertising = false
+ 
+-          emitAdvertisingError(errorMsg)
+-          promise?.reject("BLE_ERROR", errorMsg)
+-          clearPendingAdvertisingPipeline(keepCallback = true)
++          override fun onStartFailure(errorCode: Int) {
++            super.onStartFailure(errorCode)
++            val errorMsg = when (errorCode) {
++              ADVERTISE_FAILED_DATA_TOO_LARGE -> "Data too large"
++              ADVERTISE_FAILED_TOO_MANY_ADVERTISERS -> "Too many advertisers"
++              ADVERTISE_FAILED_ALREADY_STARTED -> "Already started"
++              ADVERTISE_FAILED_INTERNAL_ERROR -> "Internal error"
++              ADVERTISE_FAILED_FEATURE_UNSUPPORTED -> "Feature unsupported"
++              else -> "Unknown error: $errorCode"
++            }
++            Log.e(TAG, "Advertising failed: $errorMsg")
++            isCurrentlyAdvertising = false
++
++            emitAdvertisingError(errorMsg)
++            promise?.reject("BLE_ERROR", errorMsg)
++            clearPendingAdvertisingPipeline(keepCallback = true)
++          }
+         }
+       }
+-    }
+ 
+-    try {
+-      advertiser.startAdvertising(settings, data, advertiseCallback)
+-    } catch (e: SecurityException) {
+-      val error = "Security exception: ${e.message}"
+-      Log.e(TAG, "startAdvertiserNow: $error")
+-      promise?.reject("BLE_ERROR", error)
+-      emitAdvertisingError(error)
+-      clearPendingAdvertisingPipeline()
++      try {
++        advertiser.startAdvertising(settings, data, advertiseCallback)
++      } catch (e: SecurityException) {
++        val error = "Security exception: ${e.message}"
++        Log.e(TAG, "startAdvertiserNow: $error")
++        promise?.reject("BLE_ERROR", error)
++        emitAdvertisingError(error)
++        clearPendingAdvertisingPipeline()
++      }
+     }
+   }
+ 
+@@ -525,11 +613,19 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+   override fun setName(name: String?) {
+     emitDebugEvent("setName(name=$name)")
+     Log.d(TAG, "setName: $name")
++    if (name.isNullOrEmpty()) {
++      Log.w(TAG, "setName: name is null or empty, skipping to prevent crash")
++      return
++    }
+     deviceName = name
+     try {
+       bluetoothAdapter?.name = name
+     } catch (e: SecurityException) {
+       Log.e(TAG, "setName: SecurityException - ${e.message}")
++    } catch (e: IllegalArgumentException) {
++      Log.e(TAG, "setName: IllegalArgumentException - ${e.message}")
++    } catch (e: Exception) {
++      Log.e(TAG, "setName: Exception - ${e.message}")
+     }
+   }
+ 
+@@ -594,6 +690,10 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+         adapter.name = localName
+       } catch (e: SecurityException) {
+         Log.w(TAG, "startAdvertising: Could not set device name - ${e.message}")
++      } catch (e: IllegalArgumentException) {
++        Log.e(TAG, "startAdvertising: IllegalArgumentException - ${e.message}")
++      } catch (e: Exception) {
++        Log.e(TAG, "startAdvertising: Exception - ${e.message}")
+       }
+     }
+ 
+@@ -618,6 +718,8 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+ 
+     val advertiseData = advertiseDataBuilder.build()
+ 
++    pendingUseLongRange = useLongRange
++
+     // ✅ CRITICAL CHANGE:
+     // Register services sequentially (wait for onServiceAdded), then startAdvertising.
+     beginRegisterServicesThenAdvertise(advertiser, advertiseSettings, advertiseData, promise)
+@@ -632,10 +734,23 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+         bluetoothLeAdvertiser?.stopAdvertising(callback)
+       }
+     } catch (e: SecurityException) {
+-      Log.e(TAG, "stopAdvertising: SecurityException - ${e.message}")
++      Log.e(TAG, "stopAdvertising legacy: SecurityException - ${e.message}")
++    }
++
++    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
++      try {
++        advertisingSetCallback?.let { callback ->
++          bluetoothLeAdvertiser?.stopAdvertisingSet(callback)
++        }
++      } catch (e: SecurityException) {
++        Log.e(TAG, "stopAdvertising extended: SecurityException - ${e.message}")
++      } catch (e: Exception) {
++        Log.e(TAG, "stopAdvertising extended: Exception - ${e.message}")
++      }
+     }
+ 
+     isCurrentlyAdvertising = false
++    currentAdvertisingSet = null
+     clearPendingAdvertisingPipeline(keepCallback = true)
+   }
+ 
