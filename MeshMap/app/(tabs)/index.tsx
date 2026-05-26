@@ -4,6 +4,7 @@ import { useMobileMesh } from '../../src/hooks/useMobileMesh';
 import { Battery, Activity, Navigation2, Network } from 'lucide-react-native';
 import { BlurView } from 'expo-blur';
 
+export default function DashboardScreen() {
   const { 
     nodes, 
     permissionsGranted, 

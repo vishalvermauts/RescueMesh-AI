@@ -55,6 +55,7 @@ export function useBleBroadcaster(
         
         await BlePeripheral.startAdvertising({
           uuids: [MESHMAP_SERVICE_UUID],
+          serviceUUIDs: [MESHMAP_SERVICE_UUID],
           longRange: !!longRange,
         });
         
