@@ -8,20 +8,16 @@ index 0000000..0d7a0c1
 Binary files /dev/null and b/node_modules/@react-native/gradle-plugin/.gradle/8.8/executionHistory/executionHistory.lock differ
 diff --git a/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/buildOutputCleanup.lock
 new file mode 100644
-index 0000000..de6eaea
+index 0000000..795d3ee
 Binary files /dev/null and b/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/buildOutputCleanup.lock differ
 diff --git a/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/cache.properties b/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/cache.properties
 new file mode 100644
-index 0000000..981972d
+index 0000000..8eb7bc3
 --- /dev/null
 +++ b/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/cache.properties
 @@ -0,0 +1,2 @@
-+#Wed May 27 02:00:08 AEST 2026
-+gradle.version=8.8
-diff --git a/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/outputFiles.bin b/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/outputFiles.bin
-new file mode 100644
-index 0000000..3183930
-Binary files /dev/null and b/node_modules/@react-native/gradle-plugin/.gradle/buildOutputCleanup/outputFiles.bin differ
++#Wed May 27 02:16:25 AEST 2026
++gradle.version=9.3.1
 diff --git a/node_modules/@react-native/gradle-plugin/.gradle/file-system.probe b/node_modules/@react-native/gradle-plugin/.gradle/file-system.probe
 new file mode 100644
 index 0000000..f9a7418
@@ -406,7 +402,7 @@ index 0000000..59499bc
 +Manifest-Version: 1.0
 +
 diff --git a/node_modules/@react-native/gradle-plugin/settings.gradle.kts b/node_modules/@react-native/gradle-plugin/settings.gradle.kts
-index b3c46a3..0fa5df3 100644
+index b3c46a3..14f1e9c 100644
 --- a/node_modules/@react-native/gradle-plugin/settings.gradle.kts
 +++ b/node_modules/@react-native/gradle-plugin/settings.gradle.kts
 @@ -13,7 +13,7 @@ pluginManagement {
@@ -414,7 +410,7 @@ index b3c46a3..0fa5df3 100644
  }
  
 -plugins { id("org.gradle.toolchains.foojay-resolver-convention").version("0.5.0") }
-+plugins { id("org.gradle.toolchains.foojay-resolver-convention").version("0.8.0") }
++plugins { id("org.gradle.toolchains.foojay-resolver-convention").version("1.0.0") }
  
  include(
      ":react-native-gradle-plugin",
