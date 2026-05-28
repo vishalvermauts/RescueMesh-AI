@@ -1,3 +1,14 @@
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/.transforms/21a7b70326a3bcbc60aa1dfb641b136a/results.bin b/node_modules/react-native-ble-peripheral-manager/android/build/.transforms/21a7b70326a3bcbc60aa1dfb641b136a/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/react-native-ble-peripheral-manager/android/build/.transforms/21a7b70326a3bcbc60aa1dfb641b136a/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/.transforms/21a7b70326a3bcbc60aa1dfb641b136a/transformed/classes/classes_dex/classes.dex b/node_modules/react-native-ble-peripheral-manager/android/build/.transforms/21a7b70326a3bcbc60aa1dfb641b136a/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..2d1e331
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/.transforms/21a7b70326a3bcbc60aa1dfb641b136a/transformed/classes/classes_dex/classes.dex differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/generated/source/buildConfig/debug/com/bleperipheralmanager/BuildConfig.java b/node_modules/react-native-ble-peripheral-manager/android/build/generated/source/buildConfig/debug/com/bleperipheralmanager/BuildConfig.java
 new file mode 100644
 index 0000000..29f31f0
@@ -1785,6 +1796,10 @@ index 0000000..9e26dfe
 @@ -0,0 +1 @@
 +{}
 \ No newline at end of file
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
+new file mode 100644
+index 0000000..e602f2c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
 new file mode 100644
 index 0000000..cfb02b0
@@ -1794,11 +1809,11 @@ new file mode 100644
 index 0000000..e69de29
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
 new file mode 100644
-index 0000000..486b2f9
+index 0000000..2f41c51
 --- /dev/null
 +++ b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
 @@ -0,0 +1 @@
-+#Wed May 27 03:26:38 AEST 2026
++#Fri May 29 01:16:17 AEST 2026
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
 new file mode 100644
 index 0000000..f1459b5
@@ -1835,6 +1850,18 @@ index 0000000..bab703d
 +<?xml version="1.0" encoding="utf-8"?>
 +<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\mcmur\Documents\antigravity\beautiful-pasteur\MeshMap\node_modules\react-native-ble-peripheral-manager\android\src\main\shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\mcmur\Documents\antigravity\beautiful-pasteur\MeshMap\node_modules\react-native-ble-peripheral-manager\android\src\debug\shaders"/></dataSet></merger>
 \ No newline at end of file
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/react-native-ble-peripheral-manager_debug.kotlin_module b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/react-native-ble-peripheral-manager_debug.kotlin_module
+new file mode 100644
+index 0000000..9dbc290
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/react-native-ble-peripheral-manager_debug.kotlin_module differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/bleperipheralmanager/BuildConfig.class b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/bleperipheralmanager/BuildConfig.class
+new file mode 100644
+index 0000000..34ffd1a
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/bleperipheralmanager/BuildConfig.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/bleperipheralmanager/NativeBlePeripheralManagerSpec.class b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/bleperipheralmanager/NativeBlePeripheralManagerSpec.class
+new file mode 100644
+index 0000000..927e846
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/bleperipheralmanager/NativeBlePeripheralManagerSpec.class differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
 new file mode 100644
 index 0000000..78ac5b8
@@ -1933,6 +1960,10 @@ index 0000000..08f4ebe
 @@ -0,0 +1 @@
 +0 Warning/Error
 \ No newline at end of file
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar
+new file mode 100644
+index 0000000..9f0a4f7
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
 new file mode 100644
 index 0000000..2dedd05
@@ -1940,18 +1971,362 @@ index 0000000..2dedd05
 +++ b/node_modules/react-native-ble-peripheral-manager/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
 @@ -0,0 +1 @@
 +com.bleperipheralmanager
-diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab
 new file mode 100644
-index 0000000..2424055
+index 0000000..be35558
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream
+new file mode 100644
+index 0000000..0b11c5f
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len
+new file mode 100644
+index 0000000..0b22d3c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at
+new file mode 100644
+index 0000000..dcf084b
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i
+new file mode 100644
+index 0000000..46332f8
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab
+new file mode 100644
+index 0000000..72f381d
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream
+new file mode 100644
+index 0000000..c4e7d6b
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len
+new file mode 100644
+index 0000000..3209aa0
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len
+new file mode 100644
+index 0000000..93a595b
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at
+new file mode 100644
+index 0000000..8f28327
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i
+new file mode 100644
+index 0000000..1978e31
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
+new file mode 100644
+index 0000000..d7cdfdb
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..c4e7d6b
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..3209aa0
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
+new file mode 100644
+index 0000000..93a595b
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..0d6e354
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+new file mode 100644
+index 0000000..1978e31
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab
+new file mode 100644
+index 0000000..bdf584a
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream
+new file mode 100644
+index 0000000..81fcb2c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream.len
+new file mode 100644
+index 0000000..002e02c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.len
+new file mode 100644
+index 0000000..2a17e6e
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at
+new file mode 100644
+index 0000000..e035fd4
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i
+new file mode 100644
+index 0000000..8317878
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+new file mode 100644
+index 0000000..c6201f5
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..036be35
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..e3f1394
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
+new file mode 100644
+index 0000000..fa606b6
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..7668e02
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+new file mode 100644
+index 0000000..a4bf978
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab
+new file mode 100644
+index 0000000..7f7e5d5
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream
+new file mode 100644
+index 0000000..bf782dc
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+new file mode 100644
+index 0000000..92c31a8
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len
+new file mode 100644
+index 0000000..ec8f944
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at
+new file mode 100644
+index 0000000..cff59c5
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i
+new file mode 100644
+index 0000000..0e38467
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab
+new file mode 100644
+index 0000000..81cb553
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+new file mode 100644
+index 0000000..0b11c5f
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+new file mode 100644
+index 0000000..0b22d3c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+new file mode 100644
+index 0000000..76736e6
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+new file mode 100644
+index 0000000..46332f8
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab
+new file mode 100644
+index 0000000..605b79c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+new file mode 100644
+index 0000000..cb5080f
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+new file mode 100644
+index 0000000..51d3a59
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+new file mode 100644
+index 0000000..6f40a50
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i
+new file mode 100644
+index 0000000..b6f0992
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab
+new file mode 100644
+index 0000000..54535b6
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+new file mode 100644
+index 0000000..8170dd9
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+new file mode 100644
+index 0000000..1e61406
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+new file mode 100644
+index 0000000..a6a1a9e
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i
+new file mode 100644
+index 0000000..55cac41
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+new file mode 100644
+index 0000000..2ceb12b
 --- /dev/null
-+++ b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt
++++ b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
 @@ -0,0 +1,2 @@
-+C:\Users\mcmur\Documents\antigravity\beautiful-pasteur\MeshMap\node_modules\react-native-ble-peripheral-manager\android\src\main\java\com\bleperipheralmanager\BlePeripheralManagerPackage.kt
-+C:\Users\mcmur\Documents\antigravity\beautiful-pasteur\MeshMap\node_modules\react-native-ble-peripheral-manager\android\src\main\java\com\bleperipheralmanager\BlePeripheralManagerModule.kt
++2
++0
 \ No newline at end of file
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab
+new file mode 100644
+index 0000000..dffaeb0
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream
+new file mode 100644
+index 0000000..0b11c5f
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len
+new file mode 100644
+index 0000000..0b22d3c
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at
+new file mode 100644
+index 0000000..7d30a43
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i
+new file mode 100644
+index 0000000..46332f8
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab
+new file mode 100644
+index 0000000..a1bfd7e
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream
+new file mode 100644
+index 0000000..100d205
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len
+new file mode 100644
+index 0000000..ccfcbf4
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at
+new file mode 100644
+index 0000000..5292f83
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i
+new file mode 100644
+index 0000000..f768a77
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab
+new file mode 100644
+index 0000000..a762969
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream
+new file mode 100644
+index 0000000..6572cc9
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len
+new file mode 100644
+index 0000000..a9b81c0
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len
+new file mode 100644
+index 0000000..37fe332
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at
+new file mode 100644
+index 0000000..b6e03da
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i
+new file mode 100644
+index 0000000..eb017b7
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin
+new file mode 100644
+index 0000000..e9d13af
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin
+new file mode 100644
+index 0000000..c8c7aa4
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin
 new file mode 100644
-index 0000000..92367c7
+index 0000000..6c52de4
 Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/react-native-ble-peripheral-manager/android/build/outputs/logs/manifest-merger-debug-report.txt
 new file mode 100644
@@ -2001,8 +2376,48 @@ index 0000000..bd512b7
 +		INJECTED from C:\Users\mcmur\Documents\antigravity\beautiful-pasteur\MeshMap\node_modules\react-native-ble-peripheral-manager\android\src\main\AndroidManifest.xml
 +	android:minSdkVersion
 +		INJECTED from C:\Users\mcmur\Documents\antigravity\beautiful-pasteur\MeshMap\node_modules\react-native-ble-peripheral-manager\android\src\main\AndroidManifest.xml
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..e138855
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/META-INF/react-native-ble-peripheral-manager_debug.kotlin_module b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/META-INF/react-native-ble-peripheral-manager_debug.kotlin_module
+new file mode 100644
+index 0000000..9dbc290
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/META-INF/react-native-ble-peripheral-manager_debug.kotlin_module differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$Companion.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$Companion.class
+new file mode 100644
+index 0000000..45b42b0
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$Companion.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$PendingRequest.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$PendingRequest.class
+new file mode 100644
+index 0000000..29fb0b3
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$PendingRequest.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$gattServerCallback$1.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$gattServerCallback$1.class
+new file mode 100644
+index 0000000..9f4a263
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$gattServerCallback$1.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$registerBroadcastReceiver$1.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$registerBroadcastReceiver$1.class
+new file mode 100644
+index 0000000..75c7293
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$registerBroadcastReceiver$1.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$startAdvertiserNow$extendedCallback$1.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$startAdvertiserNow$extendedCallback$1.class
+new file mode 100644
+index 0000000..5873fc3
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$startAdvertiserNow$extendedCallback$1.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$startAdvertiserNow$legacyCallback$1.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$startAdvertiserNow$legacyCallback$1.class
+new file mode 100644
+index 0000000..6582be4
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule$startAdvertiserNow$legacyCallback$1.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule.class
+new file mode 100644
+index 0000000..5ba95d7
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerModule.class differ
+diff --git a/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerPackage.class b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerPackage.class
+new file mode 100644
+index 0000000..7cec612
+Binary files /dev/null and b/node_modules/react-native-ble-peripheral-manager/android/build/tmp/kotlin-classes/debug/com/bleperipheralmanager/BlePeripheralManagerPackage.class differ
 diff --git a/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt b/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt
-index 8e342bb..4576f9f 100644
+index 8e342bb..8f32f84 100644
 --- a/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt
 +++ b/node_modules/react-native-ble-peripheral-manager/android/src/main/java/com/bleperipheralmanager/BlePeripheralManagerModule.kt
 @@ -14,6 +14,9 @@ import android.bluetooth.le.AdvertiseCallback
@@ -2015,170 +2430,317 @@ index 8e342bb..4576f9f 100644
  import android.content.BroadcastReceiver
  import android.content.Context
  import android.content.Intent
-@@ -83,6 +86,11 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
-   private var isCurrentlyAdvertising = false
-   private var advertiseCallback: AdvertiseCallback? = null
- 
-+  // Extended advertising state (Long Range / Coded PHY)
-+  private var advertisingSetCallback: AdvertisingSetCallback? = null
-+  private var currentAdvertisingSet: AdvertisingSet? = null
-+  private var pendingUseLongRange = false
+@@ -61,12 +64,18 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     const val AUTH_RESTRICTED = 1
+     const val AUTH_DENIED = 2
+     const val AUTH_ALLOWED_ALWAYS = 3
 +
++    // ✅ Static variables to persist across React Native JS reloads
++    private var bluetoothGattServer: BluetoothGattServer? = null
++    private var isCurrentlyAdvertising = false
++    private val activeAdvertisingSetCallbacks = java.util.concurrent.ConcurrentHashMap.newKeySet<AdvertisingSetCallback>()
++    private val activeAdvertisingSets = java.util.concurrent.ConcurrentHashMap.newKeySet<AdvertisingSet>()
++    private var activeLegacyCallback: AdvertiseCallback? = null
+   }
+ 
+   private var bluetoothManager: BluetoothManager? = null
+   private var bluetoothAdapter: BluetoothAdapter? = null
+   private var bluetoothLeAdvertiser: BluetoothLeAdvertiser? = null
+-  private var bluetoothGattServer: BluetoothGattServer? = null
+ 
+   // Track services before they're added to GATT server (build fully first!)
+   private val pendingServices: MutableMap<String, BluetoothGattService> = LinkedHashMap()
+@@ -78,10 +87,7 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+   // Track pending requests for respondToRequest
+   private val pendingRequests: MutableMap<Int, PendingRequest> = LinkedHashMap()
+   private var requestIdCounter = 0
+-
+-  // Advertising state
+-  private var isCurrentlyAdvertising = false
+-  private var advertiseCallback: AdvertiseCallback? = null
++  private var pendingUseLongRange = false
+ 
    // Device name
    private var deviceName: String? = null
+@@ -101,6 +107,7 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+   private var pendingAdvertiser: BluetoothLeAdvertiser? = null
+   private var pendingAdvertiseSettings: AdvertiseSettings? = null
+   private var pendingAdvertiseData: AdvertiseData? = null
++  private var pendingScanResponse: AdvertiseData? = null
+   private var isRegisteringServicesForAdvertising: Boolean = false
  
-@@ -181,7 +189,11 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+   data class PendingRequest(
+@@ -180,14 +187,22 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     pendingAdvertiser = null
      pendingAdvertiseSettings = null
      pendingAdvertiseData = null
++    pendingScanResponse = null
      isRegisteringServicesForAdvertising = false
 -    if (!keepCallback) advertiseCallback = null
 +    pendingUseLongRange = false
 +    if (!keepCallback) {
-+      advertiseCallback = null
-+      advertisingSetCallback = null
++      activeLegacyCallback = null
++      activeAdvertisingSetCallbacks.clear()
++      activeAdvertisingSets.clear()
 +    }
    }
  
    private fun beginRegisterServicesThenAdvertise(
-@@ -263,50 +275,126 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     advertiser: BluetoothLeAdvertiser,
+     settings: AdvertiseSettings,
+     data: AdvertiseData,
++    scanResponse: AdvertiseData,
++    useLongRange: Boolean,
+     promise: Promise?
+   ) {
+     // Make sure previous pipeline (if any) is cleared
+@@ -197,6 +212,8 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     pendingAdvertiser = advertiser
+     pendingAdvertiseSettings = settings
+     pendingAdvertiseData = data
++    pendingScanResponse = scanResponse
++    pendingUseLongRange = useLongRange
+ 
+     if (bluetoothGattServer == null) {
+       bluetoothGattServer = bluetoothManager?.openGattServer(reactApplicationContext, gattServerCallback)
+@@ -252,9 +269,10 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     val advertiser = pendingAdvertiser
+     val settings = pendingAdvertiseSettings
+     val data = pendingAdvertiseData
++    val scanResponse = pendingScanResponse
+     val promise = pendingAdvertisePromise
+ 
+-    if (advertiser == null || settings == null || data == null) {
++    if (advertiser == null || settings == null || data == null || scanResponse == null) {
+       val error = "Internal error: missing advertising params"
+       Log.e(TAG, error)
+       promise?.reject("BLE_ERROR", error)
+@@ -263,13 +281,209 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
        return
      }
  
 -    // Create callback once
 -    if (advertiseCallback == null) {
 -      advertiseCallback = object : AdvertiseCallback() {
--        override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
--          super.onStartSuccess(settingsInEffect)
--          Log.i(TAG, "Advertising started successfully")
--          isCurrentlyAdvertising = true
--
--          val params: WritableMap = Arguments.createMap()
--          params.putBoolean("success", true)
--          emitOnDidStartAdvertising(params)
-+    var startedExtended = false
-+    if (pendingUseLongRange && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-+      val adapter = bluetoothAdapter
-+      if (adapter != null) {
-+        val isCodedPhySupported = adapter.isLeCodedPhySupported
-+        val isExtendedAdvSupported = adapter.isLeExtendedAdvertisingSupported
-+        Log.d(TAG, "Long Range requested. isCodedPhySupported: $isCodedPhySupported, isExtendedAdvSupported: $isExtendedAdvSupported")
++    val adapter = bluetoothAdapter
++    val isExtendedAdvSupported = adapter?.isLeExtendedAdvertisingSupported == true
++    val isCodedPhySupported = adapter?.isLeCodedPhySupported == true
++    val willUseLongRange = pendingUseLongRange && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O 
++        && isExtendedAdvSupported && isCodedPhySupported
 +
-+        if (isCodedPhySupported && isExtendedAdvSupported) {
-+          try {
-+            val parameters = AdvertisingSetParameters.Builder()
-+              .setLegacyMode(false)
-+              .setConnectable(true)
-+              .setTxPowerLevel(AdvertisingSetParameters.TX_POWER_HIGH)
-+              .setPrimaryPhy(BluetoothDevice.PHY_LE_CODED)
-+              .setSecondaryPhy(BluetoothDevice.PHY_LE_CODED)
-+              .build()
++    Log.d(TAG, "startAdvertiserNow: pendingUseLongRange=$pendingUseLongRange, willUseLongRange=$willUseLongRange, isExtendedAdvSupported=$isExtendedAdvSupported")
 +
-+            val advSetCallback = object : AdvertisingSetCallback() {
-+              override fun onAdvertisingSetStarted(
-+                advertisingSet: AdvertisingSet?,
-+                txPower: Int,
-+                status: Int
-+              ) {
-+                super.onAdvertisingSetStarted(advertisingSet, txPower, status)
-+                if (status == ADVERTISE_SUCCESS) {
-+                  Log.i(TAG, "Long Range Advertising started successfully")
-+                  currentAdvertisingSet = advertisingSet
-+                  isCurrentlyAdvertising = true
++    // Clear any previous active advertising states to ensure a clean slate
++    activeAdvertisingSets.clear()
++    activeAdvertisingSetCallbacks.clear()
++    activeLegacyCallback = null
 +
-+                  val params: WritableMap = Arguments.createMap()
-+                  params.putBoolean("success", true)
-+                  emitOnDidStartAdvertising(params)
++    // 1. Build legacy advertising data and scan response
++    val legacyDataToUse: AdvertiseData
++    val legacyScanResponseToUse: AdvertiseData
 +
-+                  promise?.resolve(null)
-+                  clearPendingAdvertisingPipeline(keepCallback = true)
-+                } else {
-+                  val errorMsg = "Long Range Advertising failed to start with status: $status"
-+                  Log.e(TAG, errorMsg)
-+                  isCurrentlyAdvertising = false
-+                  emitAdvertisingError(errorMsg)
-+                  promise?.reject("BLE_ERROR", errorMsg)
-+                  clearPendingAdvertisingPipeline(keepCallback = true)
-+                }
++    if (pendingUseLongRange) {
++      // For legacy 1M, exclude device name from main ad packet and put it in scan response
++      val serviceUuids = data.serviceUuids ?: emptyList()
++      val legacyDataBuilder = AdvertiseData.Builder()
++        .setIncludeDeviceName(false)
++        .setIncludeTxPowerLevel(false)
++      for (uuid in serviceUuids) {
++        legacyDataBuilder.addServiceUuid(uuid)
++      }
++      legacyDataToUse = legacyDataBuilder.build()
++
++      val legacyScanResponseBuilder = AdvertiseData.Builder()
++        .setIncludeDeviceName(true)
++        .setIncludeTxPowerLevel(false)
++      legacyScanResponseToUse = legacyScanResponseBuilder.build()
++    } else {
++      legacyDataToUse = data
++      legacyScanResponseToUse = scanResponse
++    }
++
++    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O && isExtendedAdvSupported) {
++      // Use modern AdvertisingSet API exclusively to avoid resource conflicts
++      val lock = Any()
++      var successTriggered = false
++      var legacyStarted = false
++      var extendedStarted = false
++      var legacyFailed = false
++      var extendedFailed = false
++
++      val checkAdvertisingCompletion = {
++        synchronized(lock) {
++          val expectedExtended = willUseLongRange
++          val legacyDone = legacyStarted || legacyFailed
++          val extendedDone = !expectedExtended || extendedStarted || extendedFailed
++
++          if (legacyDone && extendedDone) {
++            if (legacyStarted || extendedStarted) {
++              if (!successTriggered) {
++                successTriggered = true
++                isCurrentlyAdvertising = true
++                val params: WritableMap = Arguments.createMap()
++                params.putBoolean("success", true)
++                emitOnDidStartAdvertising(params)
++                promise?.resolve(null)
++                clearPendingAdvertisingPipeline(keepCallback = true)
 +              }
-+
-+              override fun onAdvertisingSetStopped(advertisingSet: AdvertisingSet?) {
-+                super.onAdvertisingSetStopped(advertisingSet)
-+                Log.i(TAG, "Long Range Advertising set stopped")
++            } else {
++              if (!successTriggered) {
++                successTriggered = true
 +                isCurrentlyAdvertising = false
-+                currentAdvertisingSet = null
++                val errorMsg = "Failed to start any advertising set"
++                emitAdvertisingError(errorMsg)
++                promise?.reject("BLE_ERROR", errorMsg)
++                clearPendingAdvertisingPipeline(keepCallback = true)
 +              }
 +            }
- 
--          promise?.resolve(null)
--          clearPendingAdvertisingPipeline(keepCallback = true)
-+            advertisingSetCallback = advSetCallback
-+            advertiser.startAdvertisingSet(parameters, data, null, null, null, advSetCallback)
-+            startedExtended = true
-+            Log.d(TAG, "Triggered startAdvertisingSet for Long Range")
-+          } catch (e: SecurityException) {
-+            val error = "Security exception in Long Range Advertising: ${e.message}"
-+            Log.e(TAG, "startAdvertiserNow (Long Range): $error")
-+            promise?.reject("BLE_ERROR", error)
-+            emitAdvertisingError(error)
-+            clearPendingAdvertisingPipeline()
-+            return
-+          } catch (e: Exception) {
-+            Log.w(TAG, "Failed to start Long Range advertising, falling back to legacy: ${e.message}")
 +          }
-+        } else {
-+          Log.w(TAG, "Device does not support Long Range BLE Coded PHY, falling back to legacy")
-         }
++        }
 +      }
-+    }
++
++      // 1a. Start Legacy 1M Set using modern AdvertisingSet API
++      val legacyParams = AdvertisingSetParameters.Builder()
++        .setLegacyMode(true)
++        .setConnectable(true)
++        .setScannable(true)
++        .setInterval(AdvertisingSetParameters.INTERVAL_LOW)
++        .setTxPowerLevel(AdvertisingSetParameters.TX_POWER_MEDIUM)
++        .build()
++
++      val legacyCallback = object : AdvertisingSetCallback() {
++        override fun onAdvertisingSetStarted(advertisingSet: AdvertisingSet?, txPower: Int, status: Int) {
++          super.onAdvertisingSetStarted(advertisingSet, txPower, status)
++          if (status == ADVERTISE_SUCCESS) {
++            Log.i(TAG, "Legacy AdvertisingSet (1M) started successfully via modern API")
++            if (advertisingSet != null) {
++              activeAdvertisingSets.add(advertisingSet)
++            }
++            activeAdvertisingSetCallbacks.add(this)
++            legacyStarted = true
++          } else {
++            Log.e(TAG, "Legacy AdvertisingSet failed to start with status: $status")
++            legacyFailed = true
++          }
++          checkAdvertisingCompletion()
++        }
++
++        override fun onAdvertisingSetStopped(advertisingSet: AdvertisingSet?) {
++          super.onAdvertisingSetStopped(advertisingSet)
++          Log.i(TAG, "Legacy AdvertisingSet stopped")
++          if (advertisingSet != null) {
++            activeAdvertisingSets.remove(advertisingSet)
++          }
++          activeAdvertisingSetCallbacks.remove(this)
++        }
++      }
++
++      try {
++        advertiser.startAdvertisingSet(
++          legacyParams,
++          legacyDataToUse,
++          legacyScanResponseToUse,
++          null, null,
++          legacyCallback
++        )
++      } catch (e: SecurityException) {
++        Log.e(TAG, "SecurityException starting legacy AdvertisingSet: ${e.message}")
++        legacyFailed = true
++        checkAdvertisingCompletion()
++      } catch (e: Exception) {
++        Log.e(TAG, "Exception starting legacy AdvertisingSet: ${e.message}")
++        legacyFailed = true
++        checkAdvertisingCompletion()
++      }
++
++      // 1b. Start Coded PHY Extended Set if requested
++      if (willUseLongRange) {
++        val extendedParams = AdvertisingSetParameters.Builder()
++          .setLegacyMode(false)
++          .setConnectable(true)
++          .setTxPowerLevel(AdvertisingSetParameters.TX_POWER_HIGH)
++          .setPrimaryPhy(BluetoothDevice.PHY_LE_CODED)
++          .setSecondaryPhy(BluetoothDevice.PHY_LE_CODED)
++          .build()
++
++        val serviceUuids = data.serviceUuids ?: emptyList()
++        val extendedDataBuilder = AdvertiseData.Builder()
++          .setIncludeDeviceName(true)
++          .setIncludeTxPowerLevel(false)
++        for (uuid in serviceUuids) {
++          extendedDataBuilder.addServiceUuid(uuid)
++        }
++        val extendedData = extendedDataBuilder.build()
++
++        val extendedCallback = object : AdvertisingSetCallback() {
++          override fun onAdvertisingSetStarted(advertisingSet: AdvertisingSet?, txPower: Int, status: Int) {
++            super.onAdvertisingSetStarted(advertisingSet, txPower, status)
++            if (status == ADVERTISE_SUCCESS) {
++              Log.i(TAG, "Extended AdvertisingSet (Coded PHY) started successfully")
++              if (advertisingSet != null) {
++                activeAdvertisingSets.add(advertisingSet)
++              }
++              activeAdvertisingSetCallbacks.add(this)
++              extendedStarted = true
++            } else {
++              Log.e(TAG, "Extended AdvertisingSet failed to start with status: $status")
++              extendedFailed = true
++            }
++            checkAdvertisingCompletion()
++          }
++
++          override fun onAdvertisingSetStopped(advertisingSet: AdvertisingSet?) {
++            super.onAdvertisingSetStopped(advertisingSet)
++            Log.i(TAG, "Extended AdvertisingSet stopped")
++            if (advertisingSet != null) {
++              activeAdvertisingSets.remove(advertisingSet)
++            }
++            activeAdvertisingSetCallbacks.remove(this)
++          }
++        }
++
++        try {
++          advertiser.startAdvertisingSet(
++            extendedParams,
++            extendedData,
++            null,
++            null, null,
++            extendedCallback
++          )
++        } catch (e: SecurityException) {
++          Log.e(TAG, "SecurityException starting extended AdvertisingSet: ${e.message}")
++          extendedFailed = true
++          checkAdvertisingCompletion()
++        } catch (e: Exception) {
++          Log.e(TAG, "Exception starting extended AdvertisingSet: ${e.message}")
++          extendedFailed = true
++          checkAdvertisingCompletion()
++        }
++      }
++    } else {
++      // Fallback: Use legacy startAdvertising API for older devices
++      val legacyCallback = object : AdvertiseCallback() {
+         override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
+           super.onStartSuccess(settingsInEffect)
+-          Log.i(TAG, "Advertising started successfully")
++          Log.i(TAG, "Legacy Advertising started successfully via fallback API")
+           isCurrentlyAdvertising = true
++          activeLegacyCallback = this
  
--        override fun onStartFailure(errorCode: Int) {
--          super.onStartFailure(errorCode)
--          val errorMsg = when (errorCode) {
--            ADVERTISE_FAILED_DATA_TOO_LARGE -> "Data too large"
--            ADVERTISE_FAILED_TOO_MANY_ADVERTISERS -> "Too many advertisers"
--            ADVERTISE_FAILED_ALREADY_STARTED -> "Already started"
--            ADVERTISE_FAILED_INTERNAL_ERROR -> "Internal error"
--            ADVERTISE_FAILED_FEATURE_UNSUPPORTED -> "Feature unsupported"
--            else -> "Unknown error: $errorCode"
-+    if (!startedExtended) {
-+      // Create callback once
-+      if (advertiseCallback == null) {
-+        advertiseCallback = object : AdvertiseCallback() {
-+          override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
-+            super.onStartSuccess(settingsInEffect)
-+            Log.i(TAG, "Advertising started successfully")
-+            isCurrentlyAdvertising = true
-+
-+            val params: WritableMap = Arguments.createMap()
-+            params.putBoolean("success", true)
-+            emitOnDidStartAdvertising(params)
-+
-+            promise?.resolve(null)
-+            clearPendingAdvertisingPipeline(keepCallback = true)
+           val params: WritableMap = Arguments.createMap()
+           params.putBoolean("success", true)
+@@ -289,24 +503,30 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+             ADVERTISE_FAILED_FEATURE_UNSUPPORTED -> "Feature unsupported"
+             else -> "Unknown error: $errorCode"
            }
 -          Log.e(TAG, "Advertising failed: $errorMsg")
 -          isCurrentlyAdvertising = false
- 
--          emitAdvertisingError(errorMsg)
--          promise?.reject("BLE_ERROR", errorMsg)
--          clearPendingAdvertisingPipeline(keepCallback = true)
-+          override fun onStartFailure(errorCode: Int) {
-+            super.onStartFailure(errorCode)
-+            val errorMsg = when (errorCode) {
-+              ADVERTISE_FAILED_DATA_TOO_LARGE -> "Data too large"
-+              ADVERTISE_FAILED_TOO_MANY_ADVERTISERS -> "Too many advertisers"
-+              ADVERTISE_FAILED_ALREADY_STARTED -> "Already started"
-+              ADVERTISE_FAILED_INTERNAL_ERROR -> "Internal error"
-+              ADVERTISE_FAILED_FEATURE_UNSUPPORTED -> "Feature unsupported"
-+              else -> "Unknown error: $errorCode"
-+            }
-+            Log.e(TAG, "Advertising failed: $errorMsg")
-+            isCurrentlyAdvertising = false
-+
-+            emitAdvertisingError(errorMsg)
-+            promise?.reject("BLE_ERROR", errorMsg)
-+            clearPendingAdvertisingPipeline(keepCallback = true)
-+          }
++          Log.e(TAG, "Legacy Advertising fallback failed: $errorMsg")
+           
++          isCurrentlyAdvertising = false
+           emitAdvertisingError(errorMsg)
+           promise?.reject("BLE_ERROR", errorMsg)
+           clearPendingAdvertisingPipeline(keepCallback = true)
          }
        }
 -    }
@@ -2192,10 +2754,16 @@ index 8e342bb..4576f9f 100644
 -      emitAdvertisingError(error)
 -      clearPendingAdvertisingPipeline()
 +      try {
-+        advertiser.startAdvertising(settings, data, advertiseCallback)
++        advertiser.startAdvertising(settings, legacyDataToUse, legacyScanResponseToUse, legacyCallback)
 +      } catch (e: SecurityException) {
 +        val error = "Security exception: ${e.message}"
-+        Log.e(TAG, "startAdvertiserNow: $error")
++        Log.e(TAG, "startAdvertiserNow fallback: $error")
++        promise?.reject("BLE_ERROR", error)
++        emitAdvertisingError(error)
++        clearPendingAdvertisingPipeline()
++      } catch (e: Exception) {
++        val error = "Exception: ${e.message}"
++        Log.e(TAG, "startAdvertiserNow fallback: $error")
 +        promise?.reject("BLE_ERROR", error)
 +        emitAdvertisingError(error)
 +        clearPendingAdvertisingPipeline()
@@ -2203,7 +2771,7 @@ index 8e342bb..4576f9f 100644
      }
    }
  
-@@ -525,11 +613,19 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+@@ -525,11 +745,19 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
    override fun setName(name: String?) {
      emitDebugEvent("setName(name=$name)")
      Log.d(TAG, "setName: $name")
@@ -2223,7 +2791,7 @@ index 8e342bb..4576f9f 100644
      }
    }
  
-@@ -575,12 +671,17 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+@@ -575,12 +803,17 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
      // Parse options
      var serviceUUIDs: List<String> = emptyList()
      var localName: String? = null
@@ -2242,7 +2810,7 @@ index 8e342bb..4576f9f 100644
          if (uuidsArray != null) {
            serviceUUIDs = (0 until uuidsArray.length()).map { uuidsArray.getString(it) }
          }
-@@ -594,6 +695,10 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+@@ -594,9 +827,18 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
          adapter.name = localName
        } catch (e: SecurityException) {
          Log.w(TAG, "startAdvertising: Could not set device name - ${e.message}")
@@ -2253,37 +2821,75 @@ index 8e342bb..4576f9f 100644
        }
      }
  
-@@ -618,6 +723,8 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
++    val isCodedPhySupported = bluetoothAdapter?.isLeCodedPhySupported == true
++    val isExtendedAdvSupported = bluetoothAdapter?.isLeExtendedAdvertisingSupported == true
++    val willUseLongRange = useLongRange && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O 
++        && isCodedPhySupported && isExtendedAdvSupported
++
+     val advertiseSettings = AdvertiseSettings.Builder()
+       .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY)
+       .setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_MEDIUM)
+@@ -604,8 +846,9 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+       .setTimeout(0)
+       .build()
+ 
++    // Service UUIDs go into main advertising data. Include name only if using Coded PHY (which supports up to 254 bytes)
+     val advertiseDataBuilder = AdvertiseData.Builder()
+-      .setIncludeDeviceName(true)
++      .setIncludeDeviceName(willUseLongRange)
+       .setIncludeTxPowerLevel(false)
+ 
+     for (uuid in serviceUUIDs) {
+@@ -618,9 +861,16 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
  
      val advertiseData = advertiseDataBuilder.build()
  
-+    pendingUseLongRange = useLongRange
++    // Local Name goes into Scan Response data ONLY for legacy mode
++    val scanResponseBuilder = AdvertiseData.Builder()
++      .setIncludeDeviceName(!willUseLongRange)
++      .setIncludeTxPowerLevel(false)
++
++    val scanResponse = scanResponseBuilder.build()
 +
      // ✅ CRITICAL CHANGE:
      // Register services sequentially (wait for onServiceAdded), then startAdvertising.
-     beginRegisterServicesThenAdvertise(advertiser, advertiseSettings, advertiseData, promise)
-@@ -632,10 +739,23 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+-    beginRegisterServicesThenAdvertise(advertiser, advertiseSettings, advertiseData, promise)
++    beginRegisterServicesThenAdvertise(advertiser, advertiseSettings, advertiseData, scanResponse, useLongRange, promise)
+   }
+ 
+   override fun stopAdvertising() {
+@@ -628,12 +878,32 @@ class BlePeripheralManagerModule(reactContext: ReactApplicationContext) :
+     Log.d(TAG, "stopAdvertising")
+ 
+     try {
+-      advertiseCallback?.let { callback ->
++      activeLegacyCallback?.let { callback ->
          bluetoothLeAdvertiser?.stopAdvertising(callback)
        }
      } catch (e: SecurityException) {
 -      Log.e(TAG, "stopAdvertising: SecurityException - ${e.message}")
 +      Log.e(TAG, "stopAdvertising legacy: SecurityException - ${e.message}")
++    } catch (e: Exception) {
++      Log.e(TAG, "stopAdvertising legacy: Exception - ${e.message}")
 +    }
++    activeLegacyCallback = null
 +
 +    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-+      try {
-+        advertisingSetCallback?.let { callback ->
-+          bluetoothLeAdvertiser?.stopAdvertisingSet(callback)
++      val advertiser = bluetoothLeAdvertiser
++      if (advertiser != null) {
++        for (callback in activeAdvertisingSetCallbacks) {
++          try {
++            advertiser.stopAdvertisingSet(callback)
++          } catch (e: SecurityException) {
++            Log.e(TAG, "stopAdvertisingSet SecurityException - ${e.message}")
++          } catch (e: Exception) {
++            Log.e(TAG, "stopAdvertisingSet Exception - ${e.message}")
++          }
 +        }
-+      } catch (e: SecurityException) {
-+        Log.e(TAG, "stopAdvertising extended: SecurityException - ${e.message}")
-+      } catch (e: Exception) {
-+        Log.e(TAG, "stopAdvertising extended: Exception - ${e.message}")
 +      }
      }
++    activeAdvertisingSetCallbacks.clear()
++    activeAdvertisingSets.clear()
  
      isCurrentlyAdvertising = false
-+    currentAdvertisingSet = null
      clearPendingAdvertisingPipeline(keepCallback = true)
-   }
- 

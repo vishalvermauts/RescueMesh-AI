@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Switch } from 'react-native';
-import { useMobileMesh } from '../../src/hooks/useMobileMesh';
+import { useSharedMesh } from '../../src/context/MeshContext';
 import { Battery, Activity, Navigation2, Network } from 'lucide-react-native';
 import { BlurView } from 'expo-blur';
 
@@ -16,10 +16,15 @@ export default function DashboardScreen() {
     longRange,
     setLongRange,
     myLocation
-  } = useMobileMesh();
+  } = useSharedMesh();
 
   const [msgInput, setMsgInput] = React.useState('');
   const chatScrollRef = React.useRef<ScrollView>(null);
+
+  // Debug: verify nodes are reaching the UI from shared context
+  React.useEffect(() => {
+    console.warn(`[DASHBOARD] nodes.length=${nodes.length} permissionsGranted=${permissionsGranted}`);
+  }, [nodes.length, permissionsGranted]);
 
   return (
     <View style={styles.container}>

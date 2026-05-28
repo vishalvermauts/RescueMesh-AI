@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { useMobileMesh } from '../../src/hooks/useMobileMesh';
+import { useSharedMesh } from '../../src/context/MeshContext';
 import { BlurView } from 'expo-blur';
 
 export default function LogsScreen() {
-  const { logs, unknownDevices, authorizeDevice } = useMobileMesh();
+  const { logs, unknownDevices, authorizeDevice } = useSharedMesh();
   const scrollViewRef = useRef<ScrollView>(null);
 
   return (

@@ -1,118 +1,218 @@
-import React, { useMemo } from 'react';
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import Svg, { Path, Circle, Rect, G, Text as SvgText, Polyline } from 'react-native-svg';
-import { useMobileMesh } from '../../src/hooks/useMobileMesh';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Platform,
+  ActivityIndicator,
+} from 'react-native';
+import MapView, { Marker, Polyline, PROVIDER_DEFAULT } from 'react-native-maps';
+import { useSharedMesh } from '../../src/context/MeshContext';
 import trailData from '../../src/data/trail.json';
 
-const { width, height } = Dimensions.get('window');
-const MAP_CENTER = { lat: 37.7749, lng: -122.4194 };
-const ZOOM_FACTOR = 100000;
+
+// Parse trail GeoJSON coordinates into LatLng array
+const TRAIL_COORDS = (trailData.features[0].geometry.coordinates as number[][]).map(
+  ([lng, lat]) => ({ latitude: lat, longitude: lng })
+);
+
+// Compute bounding box for the trail
+function getBBox(coords: { latitude: number; longitude: number }[]) {
+  let minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
+  for (const { latitude, longitude } of coords) {
+    if (latitude < minLat) minLat = latitude;
+    if (latitude > maxLat) maxLat = latitude;
+    if (longitude < minLng) minLng = longitude;
+    if (longitude > maxLng) maxLng = longitude;
+  }
+  return { minLat, maxLat, minLng, maxLng };
+}
+
+const TRAIL_BBOX = getBBox(TRAIL_COORDS);
+const TRAIL_CENTER = {
+  latitude: (TRAIL_BBOX.minLat + TRAIL_BBOX.maxLat) / 2,
+  longitude: (TRAIL_BBOX.minLng + TRAIL_BBOX.maxLng) / 2,
+};
+const TRAIL_DELTA = {
+  latitudeDelta: Math.max((TRAIL_BBOX.maxLat - TRAIL_BBOX.minLat) * 2.5, 0.01),
+  longitudeDelta: Math.max((TRAIL_BBOX.maxLng - TRAIL_BBOX.minLng) * 2.5, 0.015),
+};
+
+// Signal strength → color
+function signalColor(rssi: number | undefined) {
+  if (rssi === undefined) return '#818CF8';
+  if (rssi > -60) return '#10B981'; // strong: green
+  if (rssi > -80) return '#F59E0B'; // medium: amber
+  return '#EF4444';                 // weak: red
+}
 
 export default function MapScreen() {
-  const { nodes, myLocation, username } = useMobileMesh();
+  const { nodes, myLocation, username } = useSharedMesh();
+  const mapRef = useRef<MapView>(null);
+  const [mapReady, setMapReady] = useState(false);
 
-  // If we have a real GPS location, use it! Otherwise default to SF for the mock
-  const MAP_CENTER = myLocation ? { lng: myLocation[0], lat: myLocation[1] } : { lat: 37.7749, lng: -122.4194 };
-
-  // Draw a stylish grid overlay
-  const gridLines = useMemo(() => {
-    const lines = [];
-    const gridSize = 40;
-    for (let i = 0; i < width * 2; i += gridSize) {
-      lines.push(`M${i},0 L${i},${height * 2}`);
+  // Build the initial region — prefer user GPS, fallback to trail center
+  const initialRegion = useMemo(() => {
+    if (myLocation) {
+      return {
+        latitude: myLocation[1],
+        longitude: myLocation[0],
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.015,
+      };
     }
-    for (let j = 0; j < height * 2; j += gridSize) {
-      lines.push(`M0,${j} L${width * 2},${j}`);
+    return { ...TRAIL_CENTER, ...TRAIL_DELTA };
+  }, []); // only compute once on mount
+
+  // Once map is ready, fit to show trail + all peers
+  useEffect(() => {
+    if (!mapReady) return;
+    const allPoints: { latitude: number; longitude: number }[] = [...TRAIL_COORDS];
+    if (myLocation) allPoints.push({ latitude: myLocation[1], longitude: myLocation[0] });
+    for (const node of nodes) {
+      if (node.coordinates) {
+        allPoints.push({ latitude: node.coordinates[1], longitude: node.coordinates[0] });
+      }
     }
-    return lines.join(' ');
-  }, []);
+    if (allPoints.length > 0) {
+      mapRef.current?.fitToCoordinates(allPoints, {
+        edgePadding: { top: 80, right: 40, bottom: 160, left: 40 },
+        animated: true,
+      });
+    }
+  }, [mapReady, nodes.length]);
 
-  // Parse GeoJSON and project to SVG coordinates
-  const trailPoints = useMemo(() => {
-    const coordinates = trailData.features[0].geometry.coordinates;
-    const originLng = coordinates[0][0];
-    const originLat = coordinates[0][1];
-    
-    // Dynamically offset the GeoJSON mock trail to always start exactly where the user is physically standing!
-    const offsetLng = myLocation ? myLocation[0] - originLng : 0;
-    const offsetLat = myLocation ? myLocation[1] - originLat : 0;
+  const centerOnMe = () => {
+    const lat = myLocation ? myLocation[1] : TRAIL_CENTER.latitude;
+    const lng = myLocation ? myLocation[0] : TRAIL_CENTER.longitude;
+    mapRef.current?.animateToRegion(
+      { latitude: lat, longitude: lng, latitudeDelta: 0.008, longitudeDelta: 0.012 },
+      500
+    );
+  };
 
-    return coordinates.map(coord => {
-      const shiftedLng = coord[0] + offsetLng;
-      const shiftedLat = coord[1] + offsetLat;
-      const dx = (shiftedLng - MAP_CENTER.lng) * ZOOM_FACTOR;
-      const dy = (MAP_CENTER.lat - shiftedLat) * ZOOM_FACTOR;
-      return `${width + dx},${height + dy}`; // 'width' and 'height' is the exact center of our 2x canvas
-    }).join(' ');
-  }, [myLocation, MAP_CENTER]);
+  const fitAll = () => {
+    const allPoints: { latitude: number; longitude: number }[] = [...TRAIL_COORDS];
+    if (myLocation) allPoints.push({ latitude: myLocation[1], longitude: myLocation[0] });
+    for (const node of nodes) {
+      if (node.coordinates) {
+        allPoints.push({ latitude: node.coordinates[1], longitude: node.coordinates[0] });
+      }
+    }
+    mapRef.current?.fitToCoordinates(allPoints, {
+      edgePadding: { top: 80, right: 40, bottom: 160, left: 40 },
+      animated: true,
+    });
+  };
 
   return (
     <View style={styles.container}>
-      <ScrollView horizontal={true} bounces={false}>
-        <ScrollView bounces={false}>
-          {/* We increase the SVG size to allow panning around the center */}
-          <Svg width={width * 2} height={height * 2}>
-            {/* Dark Map Background */}
-            <Rect x="0" y="0" width="100%" height="100%" fill="#0F172A" />
+      <MapView
+        ref={mapRef}
+        style={styles.map}
+        provider={PROVIDER_DEFAULT}
+        initialRegion={initialRegion}
+        mapType="standard"
+        showsUserLocation={true}
+        showsMyLocationButton={false}
+        showsCompass={true}
+        showsScale={true}
+        onMapReady={() => setMapReady(true)}
+      >
+        {/* Hiking trail polyline */}
+        <Polyline
+          coordinates={TRAIL_COORDS}
+          strokeColor="#10B981"
+          strokeWidth={4}
+          lineDashPattern={undefined}
+          lineJoin="round"
+          lineCap="round"
+        />
 
-            {/* Topographic / Grid Lines */}
-            <Path d={gridLines} stroke="#1E293B" strokeWidth="1" />
+        {/* "You are here" marker (if location known) */}
+        {myLocation && (
+          <Marker
+            coordinate={{ latitude: myLocation[1], longitude: myLocation[0] }}
+            title={`You (${username})`}
+            description="Your current location"
+            anchor={{ x: 0.5, y: 0.5 }}
+          >
+            <View style={styles.myMarker}>
+              <View style={styles.myMarkerPulse} />
+              <View style={styles.myMarkerCore} />
+            </View>
+          </Marker>
+        )}
 
-            {/* Real GeoJSON Hiking Trail */}
-            <Polyline 
-              points={trailPoints} 
-              fill="none" 
-              stroke="#10B981" 
-              strokeWidth="4" 
-              strokeOpacity="0.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+        {/* Peer BLE node markers */}
+        {nodes.map(node => {
+          if (!node.coordinates) return null;
+          const color = signalColor(node.rssi);
+          return (
+            <Marker
+              key={node.id}
+              coordinate={{ latitude: node.coordinates[1], longitude: node.coordinates[0] }}
+              title={node.name}
+              description={`RSSI: ${node.rssi ?? 'N/A'} dBm · Battery: ${node.battery ?? '?'}%`}
+              anchor={{ x: 0.5, y: 0.5 }}
+            >
+              <View style={[styles.peerMarker, { borderColor: color }]}>
+                <Text style={styles.peerMarkerText}>{node.name.substring(0, 3).toUpperCase()}</Text>
+              </View>
+            </Marker>
+          );
+        })}
+      </MapView>
 
-            <G>
-              {/* Main user node (centered exactly in the middle of the 2x view) */}
-              <Circle cx={width} cy={height} r="12" fill="#38BDF8" opacity="0.4" />
-              <Circle cx={width} cy={height} r="6" fill="#38BDF8" />
-              <SvgText x={width + 15} y={height + 5} fill="#94A3B8" fontSize="12" fontWeight="bold">
-                You ({username})
-              </SvgText>
+      {/* Loading spinner until map tiles appear */}
+      {!mapReady && (
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator size="large" color="#10B981" />
+          <Text style={styles.loadingText}>Loading map…</Text>
+        </View>
+      )}
 
-              {/* Draw team nodes relative to the center */}
-              {nodes.map(node => {
-                const dx = (node.coordinates[0] - MAP_CENTER.lng) * ZOOM_FACTOR;
-                const dy = (MAP_CENTER.lat - node.coordinates[1]) * ZOOM_FACTOR; // Invert Y
-                const cx = width + dx;
-                const cy = height + dy;
-                
-                // Trail path to the node
-                const trailPath = `M${width},${height} L${cx},${cy}`;
+      {/* Floating HUD */}
+      <View style={styles.hudCard}>
+        <Text style={styles.hudTitle}>MeshMap</Text>
+        <Text style={styles.hudSubtitle}>Pacific Ridge Trail</Text>
+        <View style={styles.hudSeparator} />
 
-                return (
-                  <React.Fragment key={`frag-${node.id}`}>
-                    {/* Connection line */}
-                    <Path 
-                      d={trailPath} 
-                      stroke={node.rssi > -80 ? "#818CF8" : "#EF4444"} 
-                      strokeWidth="2" 
-                      strokeDasharray="5, 5" 
-                      opacity="0.6"
-                    />
-                    
-                    {/* Node marker */}
-                    <Circle cx={cx} cy={cy} r="18" fill="#1E293B" stroke={node.rssi > -80 ? "#818CF8" : "#EF4444"} strokeWidth="2" />
-                    <SvgText x={cx} y={cy + 4} fill="#F8FAFC" fontSize="9" fontWeight="bold" textAnchor="middle">
-                      {node.name.substring(0, 4)}
-                    </SvgText>
-                    <SvgText x={cx + 24} y={cy + 5} fill="#94A3B8" fontSize="10">
-                      {node.name}
-                    </SvgText>
-                  </React.Fragment>
-                );
-              })}
-            </G>
-          </Svg>
-        </ScrollView>
-      </ScrollView>
+        <View style={styles.hudLegendItem}>
+          <View style={[styles.hudDot, { backgroundColor: '#38BDF8' }]} />
+          <Text style={styles.hudLegendText}>You ({username})</Text>
+        </View>
+        <View style={styles.hudLegendItem}>
+          <View style={[styles.hudDot, { backgroundColor: '#10B981' }]} />
+          <Text style={styles.hudLegendText}>Strong signal</Text>
+        </View>
+        <View style={styles.hudLegendItem}>
+          <View style={[styles.hudDot, { backgroundColor: '#F59E0B' }]} />
+          <Text style={styles.hudLegendText}>Medium signal</Text>
+        </View>
+        <View style={styles.hudLegendItem}>
+          <View style={[styles.hudDot, { backgroundColor: '#EF4444' }]} />
+          <Text style={styles.hudLegendText}>Weak signal</Text>
+        </View>
+        <View style={styles.hudLegendItem}>
+          <View style={[styles.trailDash]} />
+          <Text style={styles.hudLegendText}>Hiking trail</Text>
+        </View>
+
+        <View style={styles.buttonRow}>
+          <TouchableOpacity style={styles.btn} onPress={centerOnMe}>
+            <Text style={styles.btnText}>📍 Me</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.btn, styles.btnSecondary]} onPress={fitAll}>
+            <Text style={styles.btnText}>🗺 All</Text>
+          </TouchableOpacity>
+        </View>
+
+        {nodes.length > 0 && (
+          <Text style={styles.peerCount}>{nodes.length} peer{nodes.length !== 1 ? 's' : ''} online</Text>
+        )}
+      </View>
     </View>
   );
 }
@@ -121,5 +221,141 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0F172A',
+  },
+  map: {
+    flex: 1,
+  },
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#0F172A',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 12,
+  },
+  loadingText: {
+    color: '#94A3B8',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+
+  // HUD Card
+  hudCard: {
+    position: 'absolute',
+    top: 20,
+    left: 16,
+    backgroundColor: 'rgba(15, 23, 42, 0.90)',
+    borderRadius: 16,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.12)',
+    minWidth: 190,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8,
+  },
+  hudTitle: {
+    color: '#F8FAFC',
+    fontWeight: '800',
+    fontSize: 15,
+    letterSpacing: 0.5,
+  },
+  hudSubtitle: {
+    color: '#94A3B8',
+    fontSize: 11,
+    marginTop: 1,
+    marginBottom: 8,
+  },
+  hudSeparator: {
+    height: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    marginBottom: 8,
+  },
+  hudLegendItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  hudDot: {
+    width: 9,
+    height: 9,
+    borderRadius: 5,
+    marginRight: 8,
+  },
+  trailDash: {
+    width: 20,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: '#10B981',
+    marginRight: 8,
+  },
+  hudLegendText: {
+    color: '#CBD5E1',
+    fontSize: 12,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 10,
+  },
+  btn: {
+    flex: 1,
+    backgroundColor: '#38BDF8',
+    borderRadius: 8,
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+  btnSecondary: {
+    backgroundColor: '#334155',
+  },
+  btnText: {
+    color: '#0F172A',
+    fontWeight: '700',
+    fontSize: 12,
+  },
+  peerCount: {
+    color: '#64748B',
+    fontSize: 11,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+
+  // Markers
+  myMarker: {
+    width: 36,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  myMarkerPulse: {
+    position: 'absolute',
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(56, 189, 248, 0.3)',
+  },
+  myMarkerCore: {
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: '#38BDF8',
+    borderWidth: 2,
+    borderColor: '#fff',
+  },
+  peerMarker: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#1E293B',
+    borderWidth: 2.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  peerMarkerText: {
+    color: '#F8FAFC',
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 0.3,
   },
 });
