@@ -25,10 +25,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Fix patch line endings
+      - name: Fix line endings
         run: |
           sudo apt-get update && sudo apt-get install -y dos2unix
           dos2unix MeshMap/patches/*.patch
+          dos2unix MeshMap/android/gradlew
 
       - name: Install dependencies
         run: |
