@@ -6,6 +6,19 @@ By leveraging raw Bluetooth Low Energy (BLE) advertisements, MeshMap enables dev
 
 ---
 
+## 📸 Cross-Device Demonstration (S24 vs Motorola)
+
+<p align="center">
+  <img src="screenshots/meshmap_1.jpg" width="100%" />
+  <img src="screenshots/meshmap_2.jpg" width="100%" />
+  <img src="screenshots/meshmap_3.jpg" width="100%" />
+  <img src="screenshots/meshmap_4.jpg" width="100%" />
+  <img src="screenshots/meshmap_5.jpg" width="100%" />
+  <img src="screenshots/meshmap_6.jpg" width="100%" />
+</p>
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend Core**: React Native (Expo SDK 56) with Expo Router for file-based navigation.
