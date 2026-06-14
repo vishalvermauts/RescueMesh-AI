@@ -7,6 +7,8 @@ RescueMesh AI is an **offline-first disaster response and Search & Rescue (SAR) 
 
 At the edge of the connectivity zone sits our Python Base Station, acting as a secure bridge. Using the **Microsoft Azure AI Projects SDK**, the Base Station intercepts offline SOS queries, securely proxies them to our custom **Foundry IQ Agent**, and then dynamically chunks the AI's life-saving intelligence back across the offline Bluetooth mesh.
 
+**Extended Range (Coded PHY):** To ensure maximum coverage in deep wilderness environments, our platform utilizes the Bluetooth 5.0 Long Range (LE Coded PHY) standard. This significantly boosts the signal propagation distance between Android nodes, allowing hikers to maintain mesh connectivity over much longer distances than standard BLE.
+
 ---
 
 ## 🏗️ Architecture Diagram
