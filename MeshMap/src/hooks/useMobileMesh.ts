@@ -111,21 +111,25 @@ function decodeUtf8(bytes: Uint8Array): string {
   return out;
 }
 
+function decodeBase64(input: string): string {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  let str = input.replace(/=+$/, '');
+  let output = '';
+  for (let bc = 0, bs = 0, buffer, i = 0;
+    buffer = str.charAt(i++);
+    ~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer,
+      bc++ % 4) ? output += String.fromCharCode(255 & bs >> (-2 * bc & 6)) : 0
+  ) {
+    buffer = chars.indexOf(buffer);
+  }
+  return output;
+}
+
 function parseLocalNameFromAdData(base64AdData: string): string | null {
   if (!base64AdData) return null;
   try {
     // Decode base64 → binary
-    let binaryString: string;
-    if (typeof atob === 'function') {
-      binaryString = atob(base64AdData);
-    } else {
-      // Node/Hermes fallback using Buffer
-      try {
-        binaryString = Buffer.from(base64AdData, 'base64').toString('binary');
-      } catch (_) {
-        return null;
-      }
-    }
+    let binaryString = decodeBase64(base64AdData);
 
     const len = binaryString.length;
     const bytes = new Uint8Array(len);
@@ -207,6 +211,7 @@ export function useMobileMesh() {
   const [localBattery, setLocalBattery] = useState<number>(() => Math.floor(75 + Math.random() * 20));
   const [broadcastCoords, setBroadcastCoords] = useState<[number, number] | null>(null);
   const [longRange, setLongRange] = useState(false);
+  const [highTxPower, setHighTxPower] = useState(false);
 
   useBleBroadcaster(
     permissionsGranted, 
@@ -214,6 +219,7 @@ export function useMobileMesh() {
     localBattery, 
     broadcastCoords, 
     longRange, 
+    highTxPower,
     (msg) => {
       setMeshState(prev => {
         const logs = [...prev.logs, msg];
@@ -484,8 +490,7 @@ export function useMobileMesh() {
           let hasOurUUIDRaw = false;
           if (!hasOurUUID && device.rawScanRecord) {
             try {
-              const atobF = typeof atob === 'function' ? atob : (s: string) => Buffer.from(s, 'base64').toString('binary');
-              const raw = atobF(device.rawScanRecord);
+              const raw = decodeBase64(device.rawScanRecord);
               // Look for 16-bit / 128-bit UUIDs or Service Data containing 0xF0 0xFE (little-endian FEF0)
               // Types: 0x02/0x03 (16-bit UUID list), 0x06/0x07 (128-bit UUID list), 0x16 (16-bit Service Data), 0x21 (128-bit Service Data)
               for (let ri = 0; ri < raw.length - 2; ri++) {
@@ -505,15 +510,26 @@ export function useMobileMesh() {
             } catch (_) {}
           }
           
-          // 2. Check if it broadcasts our tiny "MM" name (legacy)
           const isOurName = device.name === 'MM' || adName === 'MM';
           const isOurLocalName = device.localName === 'MM';
 
+
+          let normalizedName = adName || device.localName || device.name || '';
+          
+          // Hack for Windows Control Room: Windows OS prohibits overriding the Local Name.
+          // Instead, the Windows script broadcasts the payload in Manufacturer Data.
+          if (!normalizedName.startsWith('Base:') && device.manufacturerData) {
+            try {
+              const mdRaw = decodeBase64(device.manufacturerData);
+              if (mdRaw.includes("Base:")) {
+                const baseIndex = mdRaw.indexOf("Base:");
+                normalizedName = mdRaw.substring(baseIndex);
+              }
+            } catch (e) {}
+          }
+          
           // 3. Check if the name matches a MeshMap broadcast pattern
-          const isMeshPattern = isMeshMapName(nameStr, authorizedNamesRef.current);
-
-
-          const normalizedName = adName || device.localName || device.name || '';
+          const isMeshPattern = isMeshMapName(normalizedName, authorizedNamesRef.current) || normalizedName.startsWith('Base:');
           
           // Check if name is a message payload (e.g. M:Sender:Text)
           let parsedSender = '';
@@ -671,12 +687,22 @@ export function useMobileMesh() {
             setMeshState(prevState => {
               const displayName = parsedSender || nameToCheck;
               if (!displayName) return prevState;
-              const existingUnknown = [...prevState.unknownDevices];
-              // Prevent spamming multiple rotating MACs for the same device name
-              if (!existingUnknown.find(d => d.id === device.id || d.name === displayName)) {
+              
+              // Only update state if it's a completely new unknown device
+              if (!prevState.unknownDevices.find(d => d.id === device.id || d.name === displayName)) {
+                const existingUnknown = [...prevState.unknownDevices];
                 existingUnknown.push({ id: device.id, name: displayName, rssi: device.rssi });
+                
+                // Cap the list to 30 to prevent UI freezes in crowded malls/areas
+                if (existingUnknown.length > 30) {
+                  existingUnknown.shift();
+                }
+                return { ...prevState, unknownDevices: existingUnknown };
               }
-              return { ...prevState, unknownDevices: existingUnknown };
+              
+              // CRITICAL: If no device was added, return the exact prevState reference
+              // to prevent React from triggering hundreds of re-renders per second!
+              return prevState;
             });
           }
         });
@@ -789,6 +815,8 @@ export function useMobileMesh() {
     setUsername: saveUsername,
     longRange,
     setLongRange: saveLongRange,
+    highTxPower,
+    setHighTxPower,
     authorizeDevice,
     permissionsGranted,
     permissionError

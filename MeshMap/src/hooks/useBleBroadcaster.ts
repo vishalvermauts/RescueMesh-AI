@@ -17,6 +17,7 @@ export function useBleBroadcaster(
   batteryLevel?: number,
   coordinates?: [number, number] | null,
   longRange?: boolean,
+  highTxPower?: boolean,
   onLog?: (msg: string) => void
 ) {
   const coordString = coordinates ? coordinates.join(',') : '';
@@ -48,7 +49,7 @@ export function useBleBroadcaster(
           namePayload = `${deviceName}${batteryPart}${coordsPart}`;
         }
 
-        onLog?.(`[BROADCASTER] Starting advertising as '${namePayload}' (Long Range: ${!!longRange})`);
+        onLog?.(`[BROADCASTER] Starting advertising as '${namePayload}' (Long Range: ${!!longRange}, High Power: ${!!highTxPower})`);
 
         if (typeof BlePeripheral.setName === 'function' && namePayload && namePayload.trim() !== '') {
           await BlePeripheral.setName(namePayload);
@@ -64,6 +65,7 @@ export function useBleBroadcaster(
           uuids: [MESHMAP_SERVICE_UUID],
           serviceUUIDs: [MESHMAP_SERVICE_UUID],
           longRange: !!longRange,
+          highTxPower: !!highTxPower,
         };
 
         try {
@@ -104,5 +106,5 @@ export function useBleBroadcaster(
         }
       }
     };
-  }, [permissionsGranted, deviceName, batteryLevel, coordString, longRange]);
+  }, [permissionsGranted, deviceName, batteryLevel, coordString, longRange, highTxPower]);
 }

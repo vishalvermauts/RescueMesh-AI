@@ -4,6 +4,13 @@ import { useSharedMesh } from '../../src/context/MeshContext';
 import { Battery, Activity, Navigation2, Network } from 'lucide-react-native';
 import { BlurView } from 'expo-blur';
 
+function signalColor(rssi: number | undefined) {
+  if (rssi === undefined) return '#818CF8';
+  if (rssi > -75) return '#10B981'; // strong: green
+  if (rssi > -88) return '#F59E0B'; // medium: amber
+  return '#EF4444';                 // weak: red
+}
+
 export default function DashboardScreen() {
   const { 
     nodes, 
@@ -15,6 +22,8 @@ export default function DashboardScreen() {
     setUsername,
     longRange,
     setLongRange,
+    highTxPower,
+    setHighTxPower,
     myLocation
   } = useSharedMesh();
 
@@ -73,6 +82,21 @@ export default function DashboardScreen() {
           </View>
         </BlurView>
 
+        <BlurView intensity={20} tint="dark" style={styles.settingsCard}>
+          <View style={styles.settingsHeaderRow}>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.settingsTitle}>Max TX Power</Text>
+              <Text style={styles.settingsDesc}>Forces the Bluetooth antenna to broadcast at +20 dBm (or hardware max) for extreme range. Drains battery slightly faster.</Text>
+            </View>
+            <Switch
+              value={highTxPower}
+              onValueChange={setHighTxPower}
+              trackColor={{ false: '#1E293B', true: '#0369A1' }}
+              thumbColor={highTxPower ? '#38BDF8' : '#64748B'}
+            />
+          </View>
+        </BlurView>
+
         {!permissionsGranted && (
           <View style={styles.warningBanner}>
             <Text style={styles.warningText}>
@@ -106,9 +130,9 @@ export default function DashboardScreen() {
 
             <View style={styles.statsGrid}>
               <View style={styles.statBox}>
-                <Activity size={20} color="#38BDF8" style={styles.statIcon} />
+                <Activity size={20} color={signalColor(node.rssi)} style={styles.statIcon} />
                 <Text style={styles.statLabel}>Signal (RSSI)</Text>
-                <Text style={styles.statValue}>{node.rssi} dBm</Text>
+                <Text style={[styles.statValue, { color: signalColor(node.rssi) }]}>{node.rssi} dBm</Text>
               </View>
               
               <View style={styles.statBox}>

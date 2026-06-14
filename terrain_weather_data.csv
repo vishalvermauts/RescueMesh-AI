@@ -1,0 +1,13 @@
+Location,Date,Forecast,Temperature_F,Terrain_Conditions,Alerts
+Ridge Trail,2026-06-15,Sunny,72,Dry and stable,None
+Ridge Trail,2026-06-16,Partly Cloudy,68,Dry and stable,None
+Ridge Trail,2026-06-17,High Winds,60,Loose rocks on upper ridge,High wind advisory - Gusts up to 45mph
+Lower Canyon,2026-06-15,Rain,55,Muddy and slick,Flash flood watch
+Lower Canyon,2026-06-16,Heavy Rain,52,Impassable at river crossing,Flash flood warning! Seek higher ground
+Lower Canyon,2026-06-17,Cloudy,60,Muddy,None
+Base Camp,2026-06-15,Clear,75,Good,None
+Base Camp,2026-06-16,Clear,74,Good,None
+Base Camp,2026-06-17,Overcast,65,Good,None
+Peak Summit,2026-06-15,Snow Flurries,28,Icy patches,Bring crampons
+Peak Summit,2026-06-16,Blizzard,15,Whiteout conditions,DO NOT SUMMIT - Severe Weather
+Peak Summit,2026-06-17,Clear but freezing,18,Deep snow,None

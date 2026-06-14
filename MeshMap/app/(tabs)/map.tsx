@@ -68,12 +68,16 @@ export default function MapScreen() {
   // Once map is ready, fit to show trail + all peers
   useEffect(() => {
     if (!mapReady) return;
-    const allPoints: { latitude: number; longitude: number }[] = [...TRAIL_COORDS];
+    const allPoints: { latitude: number; longitude: number }[] = [];
     if (myLocation) allPoints.push({ latitude: myLocation[1], longitude: myLocation[0] });
     for (const node of nodes) {
       if (node.coordinates) {
         allPoints.push({ latitude: node.coordinates[1], longitude: node.coordinates[0] });
       }
+    }
+    // Only use the hardcoded SF trail coordinates if we have absolutely no GPS data
+    if (allPoints.length === 0) {
+      allPoints.push(...TRAIL_COORDS);
     }
     if (allPoints.length > 0) {
       mapRef.current?.fitToCoordinates(allPoints, {
@@ -93,12 +97,15 @@ export default function MapScreen() {
   };
 
   const fitAll = () => {
-    const allPoints: { latitude: number; longitude: number }[] = [...TRAIL_COORDS];
+    const allPoints: { latitude: number; longitude: number }[] = [];
     if (myLocation) allPoints.push({ latitude: myLocation[1], longitude: myLocation[0] });
     for (const node of nodes) {
       if (node.coordinates) {
         allPoints.push({ latitude: node.coordinates[1], longitude: node.coordinates[0] });
       }
+    }
+    if (allPoints.length === 0) {
+      allPoints.push(...TRAIL_COORDS);
     }
     mapRef.current?.fitToCoordinates(allPoints, {
       edgePadding: { top: 80, right: 40, bottom: 160, left: 40 },
@@ -125,7 +132,6 @@ export default function MapScreen() {
           coordinates={TRAIL_COORDS}
           strokeColor="#10B981"
           strokeWidth={4}
-          lineDashPattern={undefined}
           lineJoin="round"
           lineCap="round"
         />

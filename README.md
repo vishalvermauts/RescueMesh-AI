@@ -1,119 +1,93 @@
-# MeshMap 🛰️ - Off-Grid P2P Tactical Mapping & Messaging
+# 🏕️ RescueMesh AI: Offline-First Hybrid Edge Intelligence
 
-MeshMap is a decentralized, infrastructure-free, connectionless peer-to-peer (P2P) mapping and messaging system designed for deep-wilderness, disaster-struck, and tactically compromised environments. 
+![Track](https://img.shields.io/badge/Track-Creative_Apps_with_GitHub_Copilot-blue)
+![Azure](https://img.shields.io/badge/Azure-Foundry_IQ-blueviolet)
 
-By leveraging raw Bluetooth Low Energy (BLE) advertisements, MeshMap enables devices to broadcast and discover location telemetry, battery levels, and short chat messages asynchronously—without requiring internet connectivity, cellular networks, or establishing active Bluetooth pairings/handshakes.
+RescueMesh AI is an **offline-first disaster response and Search & Rescue (SAR) platform**. We built a custom **Bluetooth Low Energy (BLE) Mesh Network** that allows disconnected Android devices to bounce messages across a disaster zone where cellular infrastructure has failed. 
 
----
-
-## 📸 Cross-Device Demonstration (S24 vs Motorola)
-
-<p align="center">
-  <img src="screenshots/meshmap_1.jpg" width="100%" />
-  <img src="screenshots/meshmap_2.jpg" width="100%" />
-  <img src="screenshots/meshmap_3.jpg" width="100%" />
-  <img src="screenshots/meshmap_4.jpg" width="100%" />
-  <img src="screenshots/meshmap_5.jpg" width="100%" />
-  <img src="screenshots/meshmap_6.jpg" width="100%" />
-</p>
+At the edge of the connectivity zone sits our Python Base Station, acting as a secure bridge. Using the **Microsoft Azure AI Projects SDK**, the Base Station intercepts offline SOS queries, securely proxies them to our custom **Foundry IQ Agent**, and then dynamically chunks the AI's life-saving intelligence back across the offline Bluetooth mesh.
 
 ---
 
-## 🛠️ Tech Stack
+## 🏗️ Architecture Diagram
 
-- **Frontend Core**: React Native (Expo SDK 56) with Expo Router for file-based navigation.
-- **Styling**: TailwindCSS via NativeWind with a high-performance dark-mode tactical glassmorphic UI.
-- **Mapping Engine**: SVG-based dynamic GPS projection projecting decimal degrees directly into scaled map pixels locally.
-- **Native Android Layer (Kotlin)**: Custom BLE peripheral GATT server manager supporting concurrent multi-advertising slots.
-- **Native Android Scanner (Java)**: Direct hardware `BluetoothLeScanner` interface with runtime Reflection to bypass RxAndroidBle/Plx constraints and force radio scanning across all physical layers (including Coded PHY).
+```mermaid
+graph TD
+    subgraph "The Disaster Zone (100% Offline)"
+        H1[Victim / Hiker\nAndroid BLE App]
+        H2[First Responder\nAndroid BLE App]
+        H3[Relay Node\nAndroid BLE App]
+        H1 <-->|BLE Mesh| H2
+        H2 <-->|BLE Mesh| H3
+    end
 
----
+    subgraph "The Edge (Hybrid)"
+        BS[Python Base Station\nEdge Router]
+        H3 <-->|BLE 31-byte Packets| BS
+    end
 
-## ⚡ How it Works (Under the Hood)
-
-### 1. Connectionless, Stateless P2P Protocol
-Instead of establishing classical BLE client-server connection handshakes (which are power-heavy, slow, and capped at 7 concurrent links), MeshMap uses **stateless BLE advertising**. Devices continuously shout their identity and metrics into the ambient airwaves. Incoming scanning devices intercept these packets, decode the payload, and plot them in real-time.
-
-### 2. Dual-PHY Concurrent Advertising
-To achieve maximum range while maintaining backward compatibility:
-- **Extended Coded PHY (Long Range)**: On compatible modern chips (e.g. Samsung S24), the app launches a BLE 5 extended advertisement on the **Coded PHY** layer. This uses forward error correction (FEC) to boost the effective signal range up to 4x.
-- **Legacy 1M PHY (Compatibility)**: Concurrently, the app launches a legacy **1M PHY** advertisement. Legacy devices (e.g. Motorola G54) that do not support Coded PHY can still see the S24 over the 1M channel.
-
-### 3. Base36 Coordinate Compression (Bypassing the 31-Byte Limit)
-Standard legacy BLE advertisements are strictly capped at a **31-byte payload**. Fitting a username, battery percentage, and full GPS coordinates (e.g. `37.7749,-122.4194` — 17 characters) would normally fail with a `Data too large` exception. 
-MeshMap solves this by offset-shifting latitude and longitude into positive integers and compressing them into **Base36** strings (e.g. `rdgd,cbcq` — 9 characters). This compresses the spatial data payload by **47%**, fitting telemetry and messaging into a single legacy advertising packet.
-
-### 4. Direct Hardware Scanning & Reflection
-Standard React Native libraries fail to scan on Coded PHY due to compile-time SDK stubs. MeshMap implements a direct Java-level bypass to the native Android `BluetoothLeScanner`. Using Java Reflection at runtime, it sets `setScanMode(SCAN_MODE_LOW_LATENCY)`, `setLegacy(false)`, and `setPhy(PHY_LE_ALL_SUPPORTED)`, forcing the hardware radio to scan all physical channels.
+    subgraph "The Cloud (100% Online)"
+        AZ[Microsoft Azure\nFoundry IQ Agent]
+        VS[(Vector Store\nTerrain & Weather Data)]
+        AZ <--> VS
+        BS <-->|Azure AI Projects SDK\nResponses API| AZ
+    end
+```
 
 ---
 
-## 🌐 Real-World Applications
+## 🧠 How We Used Microsoft Foundry IQ (Required)
 
-This connectionless, stateless BLE advertising technology can be deployed in two modes: **with mobile devices** (leveraging existing consumer hardware) and **without mobile devices** (flashing the protocol directly onto bare-metal microcontrollers and embedded chips).
-
-### 1. Search & Rescue (SAR)
-* **With Mobile**: Search parties map out team tracking vectors, share hand-drawn canvas path overlays, and drop localized hazard markers across infrastructure-denied terrain.
-* **Without Mobile**: Passive transponders integrated into gear (hiking boots, life vests, helmets) activate automatically upon impact or water immersion, broadcasting long-range survival signals through dense foliage or snow.
-
-### 2. Maritime & Fishing Fleets
-* **With Mobile**: Establishes close-range hull-to-hull tracking webs for small-craft commercial fishing fleets to share positions without relying on expensive satellite links.
-* **Without Mobile**: Low-power marine transceivers anchored to buoys/hulls exploit the ocean surface's natural humidity layer (evaporative ducting) to broadcast automated anchor-drift alerts and vessel speed vectors.
-
-### 3. Natural Disaster Management
-* **With Mobile**: Creates a delay-tolerant "store-and-forward" communication grid. Stranded civilians save text messages locally until a drone, helicopter, or rescue vehicle acting as a "data ferry" passes close enough to passively collect and dump the payloads to a command center.
-* **Without Mobile**: Sensor blocks deployed across unstable infrastructure (bridges, dams, gates) continuously broadcast real-time structural shifting or water level metrics into the ambient airwaves for incoming teams to intercept.
-
-### 4. Defense & Tactical Operations
-* **With Mobile**: Serves as a stealth, off-grid text and tactical coordination channel for field squads when primary military satellite communications are jammed or compromised.
-* **Without Mobile**: Micro-transceivers embedded in gear maintain an Ultra-Low Probability of Intercept (LPI) due to the stateless, asynchronous, and brief nature of the broadcasts—allowing forces to track platoon health without emitting a sustained RF signature.
-
-### 5. Drones & Autonomous Robotics (UAV Swarms)
-* **With Mobile**: Ground-based commanders instantly capture real-time spatial positioning and battery metrics dropping from low-altitude search drones passing overhead.
-* **Without Mobile**: Micro-BLE chips soldered directly onto autonomous flight controllers shout velocity vectors into the airwaves, achieving zero-latency collision avoidance and distributed search routing in GPS-denied tunnels or caves without forming active network handshakes.
-
-### 6. Oil & Gas / Heavy Industrial Infrastructure
-* **With Mobile**: Field technicians carrying ruggedized maintenance tablets pull diagnostic data logs automatically simply by walking past active machinery, bypassing the need to open high-voltage, spark-sensitive junction boxes.
-* **Without Mobile**: ATEX-certified sensor nodes on high-pressure gas pipelines broadcast leakage anomalies. Skipping power-heavy connection negotiations allows these sealed nodes to broadcast continuously for 5 to 10 years on a single coin-cell battery.
-
-### 7. Medical & Mass Casualty Triage
-* **With Mobile**: Turns a medical coordinator's tablet or phone into a live, local triage radar, instantly mapping out and categorizing an entire room of incoming casualties.
-* **Without Mobile**: Replaces paper tracking slips with disposable e-paper patient wristbands embedded with low-cost BLE transmitters. The wristbands monitor trends (heart rate, respiration changes) and pack them directly into the raw advertising frame.
-
-### 8. Education & Smart Campuses
-* **With Mobile**: Provides a self-healing, peer-to-peer campus emergency alert infrastructure. If cellular networks drop during a crisis, critical evacuation directions hop securely from student device to student device.
-* **Without Mobile**: Thin asset-tracking microchips embedded in student identification cards automatically register and log student presence at outdoor assembly points, eliminating time-consuming manual roll calls.
+We utilized the **Foundry IQ Agent** as the central intelligence layer for our SAR platform. 
+1. **Knowledge Grounding:** We uploaded hyper-local disaster intelligence, terrain maps, and extreme weather forecasts as a Vector Store to Azure Foundry.
+2. **NextGen Responses API:** Our Python Base Station connects to Azure using the `azure-ai-projects` SDK. When an offline hiker transmits a query like `@IQ canyon`, the Base Station routes this to the Foundry Agent via the `openai_client.responses.create` API, referencing the agent version.
+3. **Preventing Hallucination:** Because the agent is completely grounded on our local vector data, it provides deterministic, hallucination-free warnings (e.g., *Flash Flood Watch, 55F, Muddy*) which are critical for survival scenarios.
 
 ---
 
-## 🚀 Getting Started
+## 🤖 GitHub Copilot & VS Code Journey (Required)
 
-### Prerequisites
-- Node.js (v18+)
-- Android Studio with Android SDK (API Level 33+)
-- A physical Android device supporting BLE 5.0+ (for Coded PHY validation)
+Building an offline BLE mesh that interfaces with cutting-edge Azure Cloud AI presented massive engineering challenges. We relied extensively on **Visual Studio Code** and **GitHub Copilot** to accelerate development, debug complex asynchronous networking, and resolve SDK conflicts.
 
-### Installation
-1. Clone the repository:
+### Key Issues Faced & How Copilot Solved Them:
+
+#### 1. The 31-Byte BLE Payload Limit
+* **The Issue:** Bluetooth Low Energy (BLE) strictly limits Manufacturer Data payloads to ~31 bytes. The Azure AI responses were too long to transmit back to the offline Android phones, causing packet truncation and crashes.
+* **The Copilot Solution:** We used Copilot Chat to design a byte-chunking algorithm in Python. Copilot suggested splitting the string into 20-byte arrays and transmitting them sequentially using `asyncio.sleep()` to prevent overwhelming the Android BLE receiver.
+
+#### 2. Android NDK "Ninja" Build Failures
+* **The Issue:** While building the Android client, we encountered severe `ninja: error: build.ninja:1: syntax error` failures because the Gradle path exceeded Windows MAX_PATH limits.
+* **The Copilot Solution:** Copilot immediately identified the Windows path-length restriction and suggested moving the project to the root directory `C:\Meshmap`, while also generating the exact `ndk.abiFilters` Gradle block to restrict the build to `arm64-v8a`, completely bypassing the compilation crash.
+
+#### 3. Azure Foundry "404 DeploymentNotFound" SDK Error
+* **The Issue:** When upgrading to `azure-ai-projects==2.2.0`, the standard OpenAI `create_thread` methods threw attribute errors, and the routing endpoints returned 404s.
+* **The Copilot Solution:** By pasting the Azure errors into Copilot Chat, we mapped the new NextGen agent routing architecture. Copilot helped us rewrite the client to use the newly released `responses.create` API with the `agent_reference` extra body, allowing seamless integration with our Foundry Agent.
+
+---
+
+## 🚀 Quick Start (Local Setup)
+
+> ⚠️ **SECURITY NOTICE:** Do not commit your `.env` file! We use a `.gitignore` to protect all API keys and Azure credentials.
+
+1. **Clone the Repository**
    ```bash
-   git clone https://github.com/vishalvermauts/MeshMap.git
-   cd MeshMap/MeshMap
-   ```
-2. Install npm dependencies (this will automatically apply the patches via `postinstall`):
-   ```bash
-   npm install
+   git clone https://github.com/vishalvermauts/RescueMesh-AI.git
+   cd RescueMesh-AI
    ```
 
-### Running the App
-1. Set up your Java environment and start the build process:
-   ```powershell
-   # On Windows (PowerShell)
-   $env:JAVA_HOME="C:\Program Files\Android\Android Studio\jbr"
-   $env:Path="C:\Program Files\Android\Android Studio\jbr\bin;" + $env:Path
-   npm run android
+2. **Configure Environment**
+   Create a `.env` file in the root directory:
+   ```env
+   AZURE_FOUNDRY_ENDPOINT="https://<your-resource>.services.ai.azure.com/api/projects/<project>"
+   AZURE_FOUNDRY_AGENT_NAME="Meshmap"
+   AZURE_FOUNDRY_AGENT_VERSION="2"
    ```
-2. Start the Metro Development Server if it doesn't launch automatically:
+
+3. **Run the Base Station**
    ```bash
-   npx expo start --dev-client --lan
+   pip install azure-ai-projects>=2.1.0 bleak asyncio
+   python control_room.py
    ```
-3. Connect your Android devices and allow the app to install. Set the connection URL in the Expo Dev Launcher to `exp://192.168.1.120:8081` (replacing with your PC's actual local IP).
+
+4. **Deploy the Android App**
+   Open the Android project in Android Studio, ensure Bluetooth/Location permissions are granted, and build to your physical device.

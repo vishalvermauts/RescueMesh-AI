@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Activity, Map, List } from 'lucide-react-native';
+import { Activity, Map, List, Compass } from 'lucide-react-native';
 import { MeshProvider } from '../../src/context/MeshContext';
 
 export default function TabLayout() {
@@ -31,6 +31,13 @@ export default function TabLayout() {
           options={{
             title: 'Map',
             tabBarIcon: ({ color }) => <Map size={24} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="compass"
+          options={{
+            title: 'Radar',
+            tabBarIcon: ({ color }) => <Compass size={24} color={color} />,
           }}
         />
         <Tabs.Screen
