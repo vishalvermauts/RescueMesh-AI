@@ -13,6 +13,17 @@ At the edge of the connectivity zone sits our Python Base Station, acting as a s
 
 ```mermaid
 graph TD
+    %% Development Phase
+    subgraph "Development Phase"
+        Dev[Developer]
+        GC[GitHub Copilot\n(AI Pair Programmer)]
+        VSC[Visual Studio Code]
+        Dev -->|Prompts & Code| VSC
+        VSC <-->|Inline Suggestions & Chat| GC
+        GC -.->|Accelerated Development\nBLE Chunking, SDK Fixes| VSC
+    end
+
+    %% Runtime Phase
     subgraph "The Disaster Zone (100% Offline)"
         H1[Victim / Hiker\nAndroid BLE App]
         H2[First Responder\nAndroid BLE App]
@@ -27,11 +38,15 @@ graph TD
     end
 
     subgraph "The Cloud (100% Online)"
-        AZ[Microsoft Azure\nFoundry IQ Agent]
+        AZ[Microsoft Foundry IQ Agent\n(Reasoning & RAG)]
         VS[(Vector Store\nTerrain & Weather Data)]
-        AZ <--> VS
+        AZ <-->|Grounding| VS
         BS <-->|Azure AI Projects SDK\nResponses API| AZ
     end
+
+    %% Link Dev Phase to Runtime
+    VSC ==>|Builds & Deploys| BS
+    VSC ==>|Builds & Deploys| H1
 ```
 
 ---
