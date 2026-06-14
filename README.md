@@ -16,32 +16,32 @@ graph TD
     %% Development Phase
     subgraph "Development Phase"
         Dev[Developer]
-        GC[GitHub Copilot\n(AI Pair Programmer)]
+        GC["GitHub Copilot\n(AI Pair Programmer)"]
         VSC[Visual Studio Code]
         Dev -->|Prompts & Code| VSC
         VSC <-->|Inline Suggestions & Chat| GC
-        GC -.->|Accelerated Development\nBLE Chunking, SDK Fixes| VSC
+        GC -.->|"Accelerated Development\nBLE Chunking, SDK Fixes"| VSC
     end
 
     %% Runtime Phase
     subgraph "The Disaster Zone (100% Offline)"
-        H1[Victim / Hiker\nAndroid BLE App]
-        H2[First Responder\nAndroid BLE App]
-        H3[Relay Node\nAndroid BLE App]
+        H1["Victim / Hiker\nAndroid BLE App"]
+        H2["First Responder\nAndroid BLE App"]
+        H3["Relay Node\nAndroid BLE App"]
         H1 <-->|BLE Mesh| H2
         H2 <-->|BLE Mesh| H3
     end
 
     subgraph "The Edge (Hybrid)"
-        BS[Python Base Station\nEdge Router]
+        BS["Python Base Station\nEdge Router"]
         H3 <-->|BLE 31-byte Packets| BS
     end
 
     subgraph "The Cloud (100% Online)"
-        AZ[Microsoft Foundry IQ Agent\n(Reasoning & RAG)]
-        VS[(Vector Store\nTerrain & Weather Data)]
+        AZ["Microsoft Foundry IQ Agent\n(Reasoning & RAG)"]
+        VS[("Vector Store\nTerrain & Weather Data")]
         AZ <-->|Grounding| VS
-        BS <-->|Azure AI Projects SDK\nResponses API| AZ
+        BS <-->|"Azure AI Projects SDK\nResponses API"| AZ
     end
 
     %% Link Dev Phase to Runtime
